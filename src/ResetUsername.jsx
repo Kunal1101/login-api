@@ -9,7 +9,6 @@ function ResetUsername() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Token sent:", token);
 
     try {
       const response = await fetch(
@@ -18,9 +17,9 @@ function ResetUsername() {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token,
           },
-          body: JSON.stringify({ username }),
+          body: JSON.stringify({ username: username }),
         }
       );
 
