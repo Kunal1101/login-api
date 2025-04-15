@@ -26,6 +26,7 @@ function Login() {
 
       const data = await response.json();
       console.log("Login Successful:", data);
+      localStorage.setItem("token", data.token);
     } catch (error) {
       console.error("Error:", error.message);
       alert("Login failed. Please check your credentials or try again later.");
@@ -76,6 +77,12 @@ function Login() {
           onClick={() => navigate("/forgot-password")}
         >
           Forget Password ?
+        </span>
+        <span
+          className="cursor-pointer"
+          onClick={() => navigate("/reset-username")}
+        >
+          Edit Username
         </span>
         <button
           type="submit"
